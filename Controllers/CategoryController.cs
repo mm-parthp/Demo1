@@ -1,6 +1,8 @@
 ﻿using Demo1.Data;
 using Demo1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Demo1.Controllers
 {
@@ -28,6 +30,7 @@ namespace Demo1.Controllers
             {
                 _db.categories.Add(cate);
                 _db.SaveChanges();
+                TempData["success"] = "Category Create Successfully";
                 return RedirectToAction("Index");
             }
             return View();
@@ -52,6 +55,7 @@ namespace Demo1.Controllers
             {
                 _db.categories.Update(cate);
                 _db.SaveChanges();
+                TempData["success"] = "Category Updated Successfully";
                 return RedirectToAction("Index");
             }
             return View();
@@ -81,9 +85,6 @@ namespace Demo1.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
-
-
     }
 }
+
