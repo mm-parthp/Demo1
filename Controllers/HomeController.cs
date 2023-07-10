@@ -35,6 +35,8 @@ namespace Demo1.Controllers
             _db.Add(reg);
 
             _db.SaveChanges();
+            TempData["success"] = "Register Successfully";
+
             return RedirectToAction("Login");
         }
         [HttpGet]
@@ -50,7 +52,8 @@ namespace Demo1.Controllers
             
             if (uservalidate != null) 
             { 
-                return View("Privacy"); 
+                TempData["success"] = "Login Successfully";
+                return RedirectToAction("Index","Category");
             }
             
             else

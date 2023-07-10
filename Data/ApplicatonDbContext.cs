@@ -10,5 +10,6 @@ namespace Demo1.Data
         }
         
         public DbSet<register> registers { get; set; }
+        public DbSet<Category> categories { get; set; }
     }
 }
